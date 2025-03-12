@@ -47943,23 +47943,29 @@ include('https://ajax.googleapis.com/ajax/libs/jquery/1.7.0/jquery.min.js', func
           $("#findNext").trigger('click');
         }
       }
-   
-      var pageURL = $(location).attr("href");
-      console.log($(location).attr("href"));
-      var page = pageURL.split("page")[1].substring(3,7);
+      
 
-      if (isNaN(page.substring(3,4))) {
-        page = page.replace(page.substring(3,4),"")
-      }
-      if (isNaN(page.substring(2,3))) {
-        page = page.replace(page.substring(2,3),"")
-      }
-      if (isNaN(page.substring(1,2))) {
-        page = page.replace(page.substring(1,2),"")
-      }
+      var pageURL = new URL(window.location.href);
+      var page = pageURL.searchParams.get("page");
+      console.log(pageURL);
+      console.log(page);
+
+      // var pageURL = $(location).attr("href");
+      // console.log($(location).attr("href"));
+      // var page = pageURL.split("page")[1].substring(3,7);
+
+      // if (isNaN(page.substring(3,4))) {
+      //   page = page.replace(page.substring(3,4),"")
+      // }
+      // if (isNaN(page.substring(2,3))) {
+      //   page = page.replace(page.substring(2,3),"")
+      // }
+      // if (isNaN(page.substring(1,2))) {
+      //   page = page.replace(page.substring(1,2),"")
+      // }
       //var doc = pageURL.split("doc")[3].substring(3,6);
 
-      console.log(page);
+      //console.log(page);      
 
       //Comprueba cada segundo si esta cargando el documento, cuando ya no esté cargando, ejecute el clic hacia la
       // página en concreto
